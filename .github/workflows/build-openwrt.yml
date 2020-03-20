@@ -54,7 +54,11 @@ jobs:
 
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
-
+           cd package
+           mkdir openwrt-packages
+           cd openwrt-packages
+           git clone https://github.com/tzxiaozhen88/luci-app-koolproxyR.git
+           
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
